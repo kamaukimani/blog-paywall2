@@ -2,6 +2,7 @@ from flask import Flask
 from flask_restful import Api 
 from .db import db,migrate 
 from .config import Config 
+from .models import *
 
 def create_app():
     app=Flask(__name__)
