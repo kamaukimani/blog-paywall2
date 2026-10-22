@@ -1,4 +1,4 @@
-from flask import Flask 
+from flask import Flask,request,session
 from flask_restful import Api 
 from .db import db,migrate 
 from .config import Config 
