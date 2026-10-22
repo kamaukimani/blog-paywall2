@@ -4,6 +4,14 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+flask = "*"
+flask-sqlalchemy = "*"
+flask-migrate = "*"
+flask-restful = "*"
+python-dotenv = "*"
+sqlalchemy-serializer = "*"
+faker = "*"
+psycopg = {extras = ["binary", "pool"], version = "*"}
 
 [dev-packages]
 
