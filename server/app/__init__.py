@@ -1,6 +1,6 @@
 from flask import Flask 
 from flask_restful import Api 
-from .db import db,Migrate 
+from .db import db,migrate 
 from .config import Config 
 
 def create_app():
@@ -8,7 +8,7 @@ def create_app():
     app.config.from_object(Config)
 
     db.init_app(app)
-    migrate.init_app(db,app)
+    migrate.init_app(app,db)
 
 
     return app
