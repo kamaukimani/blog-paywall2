@@ -23,5 +23,19 @@ def create_app():
     api.add_resource(MemberOnlyIndex, '/members_only_articles', endpoint='member_index')
     api.add_resource(MemberOnlyArticle, '/members_only_articles/<int:id>', endpoint='member_article')
 
+    @app.before_request
+    def check_if_logged_in():
+        open_access_list = [
+            'clear',
+            'article_list',
+            'show_article',
+            'login',
+            'logout',
+            'check_session'
+        ]
+
+        if (request.endpoint) not in open_access_list and (not session.get('user_id')):
+            return {'error': '401 Unauthorized'}, 401
+
 
     return app
